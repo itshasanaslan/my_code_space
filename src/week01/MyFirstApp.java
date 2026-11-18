@@ -1,3 +1,5 @@
+package week01;
+
 public class MyFirstApp {
 
       public static void main(String[] args) {
