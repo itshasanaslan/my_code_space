@@ -1,0 +1,85 @@
+{
+  "day_id": "day4",
+  "quiz_title": "AP CS A - Day 4 Exit Quiz: Input, Accumulators, and Financial Calculations",
+  "topic": "Scanner Input, Compound Operators, and Arithmetic Truncation",
+  "questions": [
+    {
+      "id": 1,
+      "question": "A programmer wishes to read an integer quantity from the console using a properly initialized Scanner object named scan. Which line of code correctly reads and stores the integer?",
+      "code": "Scanner scan = new Scanner(System.in);\n/* missing line */",
+      "options": [
+        "int qty = scan.readInt();",
+        "int qty = scan.nextInt();",
+        "int qty = scan.getInteger();",
+        "int qty = (int) scan.nextLine();"
+      ],
+      "correct_answer_index": 1,
+      "explanation": "In Java, the Scanner class method nextInt() scans the next token of the input as an int value. readInt() and getInteger() are not methods in the Scanner class, and nextLine() returns a String, which cannot be cast directly to an int."
+    },
+    {
+      "id": 2,
+      "question": "Consider the following code segment intended to calculate a 6% sales tax on a subtotal of 50.0 dollars. What is printed as a result of executing the code segment?",
+      "code": "double subtotal = 50.0;\ndouble taxRate = 6 / 100;\ndouble tax = subtotal * taxRate;\nSystem.out.println(tax);",
+      "options": [
+        "3.0",
+        "0.0",
+        "3.00",
+        "An ArithmeticException is thrown."
+      ],
+      "correct_answer_index": 1,
+      "explanation": "Because 6 and 100 are both integer literals, the division 6 / 100 performs integer division, truncating the quotient to 0. The variable taxRate is therefore assigned 0.0, and subtotal * 0.0 evaluates to 0.0. To obtain 3.0, at least one operand must be a double (e.g., 6.0 / 100 or 0.06)."
+    },
+    {
+      "id": 3,
+      "question": "Consider the following code segment that tracks a customer's running total across multiple items. What is the value of balance after the code executes?",
+      "code": "double balance = 0.0;\ndouble itemPrice = 12.50;\nint quantity = 2;\nbalance += itemPrice * quantity;\nbalance += 5.0;\nbalance *= 2;",
+      "options": [
+        "30.0",
+        "55.0",
+        "60.0",
+        "35.0"
+      ],
+      "correct_answer_index": 2,
+      "explanation": "Line 4: balance += 12.50 * 2 -> balance becomes 0.0 + 25.0 = 25.0. Line 5: balance += 5.0 -> balance becomes 25.0 + 5.0 = 30.0. Line 6: balance *= 2 -> balance becomes 30.0 * 2 = 60.0."
+    },
+    {
+      "id": 4,
+      "question": "A student wants to round an exact positive currency total to the nearest whole cent. For example, 14.857 should round to 14.86, and 14.852 should round to 14.85. Which of the following expressions correctly computes the rounded currency value?",
+      "code": "double amount = 14.857;",
+      "options": [
+        "(double) ((int) (amount * 100 + 0.5)) / 100.0",
+        "(int) (amount + 0.5) * 100.0",
+        "(double) (int) (amount + 0.5 / 100)",
+        "(double) (amount * 100 + 0.5 / 100)"
+      ],
+      "correct_answer_index": 0,
+      "explanation": "Multiplying amount by 100 shifts the cents to the whole-number portion (14.857 * 100 = 1485.7). Adding 0.5 produces 1486.2. Casting to (int) truncates to 1486. Finally, dividing by 100.0 shifts the decimal back two places, yielding 14.86 as a double."
+    },
+    {
+      "id": 5,
+      "question": "What is printed to the console when the following statements are executed?",
+      "code": "System.out.print(\"Total: \");\nSystem.out.print(\"$\");\nSystem.out.println(15 + 10);\nSystem.out.print(\"Thank you!\");",
+      "options": [
+        "Total: $1510\nThank you!",
+        "Total: \n$25\nThank you!",
+        "Total: $25\nThank you!",
+        "Total: $25Thank you!"
+      ],
+      "correct_answer_index": 2,
+      "explanation": "System.out.print(\"Total: \") prints 'Total: ' with no newline. System.out.print(\"$\") appends '$' on the same line. System.out.println(15 + 10) evaluates the integer addition 15 + 10 = 25, prints '25', and advances the cursor to the next line. System.out.print(\"Thank you!\") prints on line 2."
+    },
+    {
+      "id": 6,
+      "question": "Consider the following code segment that calculates the total cost of shirts with a discount. What is the value stored in finalCost?",
+      "code": "int numShirts = 4;\ndouble shirtPrice = 20.0;\ndouble discount = 5.0;\ndouble finalCost = numShirts * shirtPrice;\nfinalCost -= discount;\nfinalCost += finalCost * 0.10;",
+      "options": [
+        "75.0",
+        "82.5",
+        "88.0",
+        "70.0"
+      ],
+      "correct_answer_index": 1,
+      "explanation": "Line 4: finalCost = 4 * 20.0 = 80.0. Line 5: finalCost -= 5.0 -> finalCost becomes 75.0. Line 6: finalCost += 75.0 * 0.10 -> finalCost becomes 75.0 + 7.50 = 82.5."
+    }
+  ]
+}
